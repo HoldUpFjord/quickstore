@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
@@ -128,7 +129,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        // sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        'cal':'cal-sans'
       },
     },
   },
