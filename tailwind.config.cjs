@@ -88,6 +88,7 @@ module.exports = {
     extend: {
       backgroundImage: (theme) => ({
         screens: "url('/path-to/image.png')",
+        
       }),
 
       colors: {
@@ -134,5 +135,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };

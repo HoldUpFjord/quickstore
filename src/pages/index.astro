@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/landing/Hero.astro";
+import DaisyFooter from "../components/landing/DaisyFooter.astro"
 import Products from "../components/landing/Products.astro";
+import ImageHero from "../components/landing/ImageHero.astro";
 import { AstroSeo } from "@astrolib/seo";
 ---
 
@@ -43,6 +45,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
   }}
 />
 <BaseLayout>
-  <Hero />
+  <ImageHero />
   <Products />
+  <DaisyFooter />
 </BaseLayout>
