@@ -1,4 +1,17 @@
-<main aria-labelledby="header" class="relative overflow-hidden">
+<!-- Merged hero with product for easier scroll effect with vanilla Astro page -->
+<!-- Hero component -->
+<div class="hero min-h-screen" style="background-image: url(https://plus.unsplash.com/premium_photo-1661369243179-1c3a69f646c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+      <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <a href="#product" class="btn btn-info btn-outline">See Products</a> 
+    </div>
+  </div>
+</div>
+<!-- Product componenet -->
+<main aria-labelledby="header" class="relative overflow-hidden" id="product">
   <h2 class="sr-only" id="header">Header</h2>
   <div class="relative mx-auto px-8 max-w-7xl py-12 lg:py-24 lg:px-36 md:px-12">
     <div
@@ -97,3 +110,44 @@
     </div>
   </div>
 </main>
+
+<script>
+  // Smooth scrolling function
+  function smoothScroll(target, duration) {
+    const targetElement = document.querySelector(target);
+    if (targetElement) {
+      const targetPosition = targetElement.offsetTop;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const startTime = performance.now();
+
+      function scrollStep(currentTime) {
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeOutCubic(progress);
+        window.scrollTo(0, startPosition + distance * ease);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(scrollStep);
+        }
+      }
+
+      requestAnimationFrame(scrollStep);
+    }
+  }
+
+  // Easing function for smooth scrolling
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  // Attach click event listeners to navigation links
+  const links = document.querySelectorAll('a');
+  links.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = link.getAttribute('href');
+      smoothScroll(target, 800); // Adjust the duration as needed
+    });
+  });
+</script>
