@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Website photos",
+			"path": "../../../../../Downloads/Website photos"
+		},
+		{
+			"name": "quickstore",
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"window.title": "${activeEditorShort}${separator}${rootName} ${separator} [Branch: master]"
+	}
+}
